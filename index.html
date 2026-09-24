@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <meta name="theme-color" content="#0e0e10">
+  <title>Twitch Hybrid DVR</title>
+  <style>
+    :root{--bg:#0e0e10;--panel:#18181b;--panel2:#121216;--text:#efeff1;--muted:#adadb8;--purple:#9147ff;--purple2:#bf94ff;--line:#303038;--ok:#31d07c}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(900px 500px at 72% -10%,rgba(145,71,255,.20),transparent 60%),var(--bg);color:var(--text);font:15px/1.55 Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+    a{color:inherit}.wrap{width:min(1040px,calc(100% - 32px));margin:0 auto}.nav{height:68px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(255,255,255,.06)}.brand{display:flex;align-items:center;gap:10px;font-weight:800}.mark{width:34px;height:34px;border-radius:10px;background:linear-gradient(135deg,var(--purple),#5b2ca0);display:grid;place-items:center;box-shadow:0 8px 28px rgba(145,71,255,.28);font-size:18px}.navlinks{display:flex;gap:10px}.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:10px 14px;border:1px solid #3b3b44;border-radius:9px;text-decoration:none;font-weight:700;background:#18181b}.btn:hover{border-color:#5b5b66;background:#202025}.btn.primary{background:var(--purple);border-color:var(--purple)}.btn.primary:hover{background:#772ce8}
+    .hero{padding:84px 0 62px;display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:center}.eyebrow{display:inline-flex;align-items:center;gap:8px;color:var(--purple2);font-weight:800;font-size:13px;letter-spacing:.04em;text-transform:uppercase}.dot{width:7px;height:7px;border-radius:50%;background:var(--ok);box-shadow:0 0 14px var(--ok)}h1{font-size:clamp(42px,7vw,74px);line-height:.98;margin:15px 0 20px;letter-spacing:-.045em}.lead{font-size:19px;color:#c9c9d0;max-width:680px;margin:0 0 28px}.cta{display:flex;gap:10px;flex-wrap:wrap}.mock{background:linear-gradient(180deg,#1c1c21,#111114);border:1px solid #33333b;border-radius:18px;padding:18px;box-shadow:0 26px 80px rgba(0,0,0,.35)}.screen{aspect-ratio:16/10;border-radius:12px;background:linear-gradient(135deg,#262631,#15151a);position:relative;overflow:hidden}.screen:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 28% 36%,rgba(145,71,255,.23),transparent 26%),linear-gradient(120deg,transparent 0 45%,rgba(255,255,255,.025) 45% 55%,transparent 55%)}.playerbar{position:absolute;left:18px;right:18px;bottom:18px}.controls{display:flex;gap:6px;justify-content:center;margin-bottom:11px}.pill{padding:6px 9px;border-radius:7px;background:rgba(20,20,24,.92);font-size:11px;font-weight:750}.pill.live{background:var(--purple)}.track{height:5px;border-radius:99px;background:#5d5d67;position:relative}.track:before{content:"";position:absolute;inset:0 14% 0 0;border-radius:99px;background:var(--purple)}.track:after{content:"";position:absolute;width:13px;height:13px;border-radius:50%;background:var(--purple);right:14%;top:50%;transform:translate(50%,-50%)}
+    .section{padding:38px 0}.section h2{font-size:28px;margin:0 0 18px}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:18px}.card h3{margin:0 0 8px;font-size:16px}.card p{margin:0;color:var(--muted)}.status{display:flex;align-items:center;justify-content:space-between;gap:24px;background:var(--panel2);border:1px solid var(--line);border-radius:14px;padding:18px}.status-title{font-weight:800}.status-sub{color:var(--muted);font-size:13px;margin-top:3px}.badge{display:inline-flex;align-items:center;gap:7px;padding:7px 10px;border-radius:999px;background:#14251d;color:#8ff0b8;font-size:12px;font-weight:800;white-space:nowrap}.footer{margin-top:54px;padding:28px 0 42px;border-top:1px solid rgba(255,255,255,.07);color:#85858f;font-size:13px;display:flex;justify-content:space-between;gap:20px}.notice{font-size:12px;color:#85858f;margin-top:16px}
+    @media(max-width:780px){.hero{grid-template-columns:1fr;padding-top:54px}.mock{order:-1}.grid{grid-template-columns:1fr}.navlinks .repo{display:none}.status{align-items:flex-start;flex-direction:column}.footer{flex-direction:column}}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header class="nav">
+      <div class="brand"><div class="mark">↶</div><span>Twitch Hybrid DVR</span></div>
+      <nav class="navlinks">
+        <a class="btn repo" href="https://github.com/tttyne/twitch-dvr-config" rel="noopener">GitHub</a>
+        <a class="btn" href="config.json">config.json</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div>
+          <div class="eyebrow"><span class="dot"></span><span data-i18n="eyebrow">Development project</span></div>
+          <h1>Twitch Hybrid DVR</h1>
+          <p class="lead" data-i18n="lead">A browser extension that adds seamless rewind to Twitch live streams using the current VOD when available and a temporary local buffer as fallback.</p>
+          <div class="cta">
+            <a class="btn primary" href="config.json" data-i18n="configBtn">Open public config</a>
+            <a class="btn" href="https://github.com/tttyne/twitch-dvr-config" rel="noopener" data-i18n="repoBtn">Repository</a>
+          </div>
+          <div class="notice" data-i18n="notice">Unofficial project. Not affiliated with or endorsed by Twitch.</div>
+        </div>
+        <div class="mock" aria-hidden="true">
+          <div class="screen"><div class="playerbar"><div class="controls"><span class="pill">−10s</span><span class="pill">−30s</span><span class="pill">−1m</span><span class="pill live">● LIVE</span></div><div class="track"></div></div></div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2 data-i18n="features">What it does</h2>
+        <div class="grid">
+          <article class="card"><h3 data-i18n="f1h">Hybrid rewind</h3><p data-i18n="f1p">Uses the current Twitch VOD for deep rewind and a rolling local DVR near LIVE.</p></article>
+          <article class="card"><h3 data-i18n="f2h">Seamless playback</h3><p data-i18n="f2p">Rewind and return to LIVE without navigating away from the channel page.</p></article>
+          <article class="card"><h3 data-i18n="f3h">Temporary local data</h3><p data-i18n="f3p">The local buffer lives in the current tab and is discarded when the stream or tab is closed or refreshed.</p></article>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2 data-i18n="remoteTitle">Remote configuration</h2>
+        <div class="status">
+          <div><div class="status-title" id="config-title" data-i18n="checking">Checking config.json…</div><div class="status-sub" id="config-sub" data-i18n="remoteDesc">This GitHub Pages site hosts public, non-secret configuration data used by the extension.</div></div>
+          <div class="badge"><span class="dot"></span><span id="config-state" data-i18n="online">PUBLIC</span></div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer"><span>© 2026 Twitch Hybrid DVR</span><span data-i18n="privacy">No passwords, tokens, or private user data belong in this public configuration.</span></footer>
+  </div>
+  <script>
+    const RU = (navigator.language || '').toLowerCase().startsWith('ru');
+    const dict = {
+      ru:{eyebrow:'Проект в разработке',lead:'Браузерное расширение, которое добавляет бесшовную перемотку прямых трансляций Twitch: использует текущий VOD, когда он доступен, и временный локальный буфер как резерв.',configBtn:'Открыть публичный config',repoBtn:'Репозиторий',notice:'Неофициальный проект. Не связан с Twitch и не одобрен Twitch.',features:'Что умеет',f1h:'Гибридная перемотка',f1p:'Для глубокой перемотки использует текущий Twitch VOD, а рядом с LIVE — кольцевой локальный DVR.',f2h:'Бесшовное воспроизведение',f2p:'Можно отмотать эфир и вернуться в LIVE без перехода на другую страницу канала.',f3h:'Временные локальные данные',f3p:'Локальный буфер хранится только в текущей вкладке и удаляется при закрытии/обновлении вкладки или уходе со стрима.',remoteTitle:'Удалённая конфигурация',checking:'Проверяем config.json…',remoteDesc:'Этот GitHub Pages сайт хранит публичные несекретные данные конфигурации, которые читает расширение.',online:'ПУБЛИЧНО',privacy:'В публичной конфигурации не должно быть паролей, токенов или приватных данных пользователей.',ok:'config.json доступен',off:'Реклама сейчас выключена',on:'Удалённая конфигурация активна',err:'Не удалось прочитать config.json'},
+      en:{eyebrow:'Development project',lead:'A browser extension that adds seamless rewind to Twitch live streams using the current VOD when available and a temporary local buffer as fallback.',configBtn:'Open public config',repoBtn:'Repository',notice:'Unofficial project. Not affiliated with or endorsed by Twitch.',features:'What it does',f1h:'Hybrid rewind',f1p:'Uses the current Twitch VOD for deep rewind and a rolling local DVR near LIVE.',f2h:'Seamless playback',f2p:'Rewind and return to LIVE without navigating away from the channel page.',f3h:'Temporary local data',f3p:'The local buffer lives in the current tab and is discarded when the stream or tab is closed or refreshed.',remoteTitle:'Remote configuration',checking:'Checking config.json…',remoteDesc:'This GitHub Pages site hosts public, non-secret configuration data used by the extension.',online:'PUBLIC',privacy:'No passwords, tokens, or private user data belong in this public configuration.',ok:'config.json is available',off:'Advertising is currently disabled',on:'Remote configuration is active',err:'Could not read config.json'}
+    };
+    const t = dict[RU?'ru':'en'];
+    document.documentElement.lang = RU ? 'ru' : 'en';
+    document.querySelectorAll('[data-i18n]').forEach(el => { const k=el.dataset.i18n; if(t[k]) el.textContent=t[k]; });
+    fetch('config.json?site=' + Date.now(), {cache:'no-store'}).then(r=>{if(!r.ok)throw new Error(r.status);return r.json()}).then(cfg=>{
+      document.getElementById('config-title').textContent=t.ok;
+      document.getElementById('config-sub').textContent=cfg?.ads?.enabled ? t.on : t.off;
+    }).catch(()=>{
+      document.getElementById('config-title').textContent=t.err;
+      document.getElementById('config-state').textContent='OFFLINE';
+      document.querySelector('.badge').style.filter='grayscale(1)';
+    });
+  </script>
+</body>
+</html>
